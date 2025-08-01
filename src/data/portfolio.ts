@@ -1,189 +1,188 @@
-
 export const portfolioData = {
   personal: {
-    name: "Sidharth",
-    title: "MERN & ML Engineer",
-    tagline: "Building intelligent web applications with modern technologies",
-    email: "sidharth@example.com",
-    location: "India",
-    bio: "Passionate full-stack developer with expertise in MERN stack and Machine Learning. I love creating innovative solutions that bridge the gap between traditional web development and artificial intelligence. Currently pursuing B.Tech in Computer Science, I'm always eager to learn new technologies and contribute to impactful projects."
+    name: "Sidharth P",
+    title: "AI & Full Stack Developer",
+    tagline: "Building intelligent applications at the intersection of AI and modern web technologies",
+    email: "sidharth2272004@gmail.com",
+    location: "Palakkad, Kerala, India",
+    bio: "A passionate and results-driven B.Tech student specializing in Computer Science, with a strong foundation in both MERN stack development and Machine Learning. I excel at creating innovative, full-stack solutions that leverage AI to solve real-world problems. My experience includes developing high-performance applications, automating workflows, and building intelligent systems with a focus on clean architecture and efficient code."
   },
-  
+
   experience: [
     {
       id: 1,
-      company: "Tech Startup Inc.",
-      role: "Full Stack Developer Intern",
-      duration: "Jun 2023 - Present",
-      description: "Developed and maintained web applications using MERN stack",
+      company: "TechSaksham (AICTE, Microsoft & SAP)",
+      role: "AI Intern",
+      duration: "Dec 2024 - Jan 2025",
+      description: "Developed and deployed a real-time pose estimation application with high accuracy.",
       achievements: [
-        "Built scalable REST APIs serving 10k+ daily users",
-        "Optimized database queries reducing response time by 40%",
-        "Implemented real-time features using Socket.io"
+        "Built a real-time pose estimation app using MediaPipe and OpenCV, achieving over 90% accuracy for images, videos, and webcam streams.",
+        "Deployed an interactive Streamlit interface to provide fitness and sports analytics."
       ],
       icon: "💼"
     },
     {
       id: 2,
-      company: "AI Research Lab",
-      role: "ML Research Assistant",
-      duration: "Jan 2023 - May 2023",
-      description: "Worked on computer vision and NLP projects",
+      company: "IBM SkillsBuild",
+      role: "AI Intern",
+      duration: "Jul 2024 - Aug 2024",
+      description: "Automated user query handling by creating and deploying a low-code chatbot.",
       achievements: [
-        "Developed CNN models with 95% accuracy for image classification",
-        "Published research on fake news detection algorithms",
-        "Mentored 5 junior students in ML fundamentals"
+        "Created a low-code chatbot using IBM Watsonx Studio and Watson Assistant to automate user query handling.",
+        "Configured AI workflows and deployed the chatbot in an enterprise-ready setup."
       ],
-      icon: "🔬"
+      icon: "🤖"
     }
   ],
 
   projects: [
     {
       id: 1,
-      title: "ChefMate - AI Cooking Assistant",
-      description: "An intelligent cooking assistant that suggests recipes based on available ingredients using machine learning and provides step-by-step cooking guidance.",
-      longDescription: "ChefMate is a comprehensive cooking assistant built with the MERN stack and integrated with OpenAI's GPT API. It features ingredient recognition through image processing, personalized recipe recommendations, and real-time cooking guidance. The application includes user authentication, recipe saving, and a community feature for sharing cooking experiences.",
-      image: "/api/placeholder/600/400",
-      tech: ["React", "Node.js", "Express", "MongoDB", "OpenAI API", "TensorFlow.js"],
-      category: "AI",
-      github: "https://github.com/sidharth/chefmate",
-      demo: "https://chefmate.example.com",
-      featured: true
+      title: "VeriWrite - Intelligent Plagiarism Detection System",
+      description: "A full-stack plagiarism detection platform supporting multi-format input (PDF, DOCX, images) for fast and accurate content extraction and comparison.",
+      longDescription: {
+        intro: "VeriWrite is a comprehensive full-stack plagiarism detection platform I designed and deployed. It addresses the challenge of verifying content from various sources, including images and documents, with high efficiency and accuracy. The system includes a virtual classroom environment and a robust plagiarism engine.",
+        features: [
+          "**Multi-Format Input:** Implemented robust content extraction from various formats, including PDF, DOCX, and images, using Azure OCR for reliable text retrieval.",
+          "**High-Performance Plagiarism Engine:** Engineered a specialized engine that significantly reduced pairwise comparison overhead by 95% using a combination of MinHash and Locality-Sensitive Hashing (LSH). This enabled efficient detection across a large corpus of documents.",
+          "**Accurate Similarity Measurement:** Applied Jaccard-overlap token scoring to precisely measure and score the similarity between text snippets, providing detailed and accurate results.",
+          "**Real-Time Web Content Matching:** Integrated the SERP API to perform real-time web searches, matching user-submitted content against a vast online repository.",
+          "**Detailed Reporting & Virtual Classroom:** The platform auto-generates grouped plagiarism reports with highlighted matches and a clear scoring breakdown. Additionally, it features a virtual classroom system with role-based access for teachers to create assignments and students to upload submissions, all linked to unique IDs."
+        ],
+        tech: ["MERN", "Tailwind CSS", "MongoDB", "Azure OCR", "SERP API", "MinHash", "LSH", "Jaccard-Overlap"],
+        links: {
+          github: "https://github.com/Sid-Codex/VeriWrite",
+          demo: null,
+        }
+      },
+      image: "/images/projects/veriwrite/landing.png", // Main image for the project card
+      images: [
+        "/images/projects/veriwrite/landing.png",
+        "/images/projects/veriwrite/dashboard.jpeg",
+        "/images/projects/veriwrite/assignment.jpeg"
+      ],
+      featured: true,
+      category: "AI"
     },
     {
       id: 2,
-      title: "VeriWrite - Handwriting Plagiarism Detector",
-      description: "Advanced plagiarism detection system for handwritten documents using Microsoft OCR and Jaccard similarity algorithm.",
-      longDescription: "VeriWrite revolutionizes academic integrity by detecting plagiarism in handwritten assignments. Using Microsoft's Computer Vision API for OCR and implementing the Jaccard similarity algorithm, it can identify copied content with high accuracy. The system includes a web interface for document upload, batch processing capabilities, and detailed similarity reports.",
-      image: "/api/placeholder/600/400",
-      tech: ["Python", "Flask", "Microsoft OCR", "OpenCV", "React", "PostgreSQL"],
-      category: "AI",
-      github: "https://github.com/sidharth/veriwrite",
-      demo: "https://veriwrite.example.com",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Multimodal Fake News Detector",
-      description: "Deep learning system that detects fake news and deepfake content across text, image, and video modalities.",
-      longDescription: "A comprehensive fake news detection system that analyzes multiple types of media. The system uses transformer models for text analysis, CNN architectures for image verification, and temporal analysis for video deepfake detection. It includes a user-friendly interface and browser extension for real-time fact-checking.",
-      image: "/api/placeholder/600/400",
-      tech: ["Python", "PyTorch", "Transformers", "OpenCV", "FastAPI", "React"],
-      category: "AI",
-      github: "https://github.com/sidharth/fake-news-detector",
-      demo: "https://fakenews-detector.example.com",
-      featured: true
-    },
-    {
-      id: 4,
-      title: "E-Commerce Platform",
-      description: "Full-featured e-commerce platform with payment integration, inventory management, and admin dashboard.",
-      longDescription: "A complete e-commerce solution built with modern web technologies. Features include user authentication, product catalog, shopping cart, order management, payment processing with Stripe, inventory tracking, and comprehensive admin dashboard with analytics.",
-      image: "/api/placeholder/600/400",
-      tech: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Redis"],
-      category: "MERN",
-      github: "https://github.com/sidharth/ecommerce-platform",
-      demo: "https://ecommerce.example.com",
-      featured: false
+      title: "ChefMate - AI-Powered Cooking Assistant (Ongoing)",
+      description: "A smart assistant that uses NLP to generate personalized recipes based on dietary filters, regional cuisines, and ingredient context.",
+      longDescription: {
+        intro: "ChefMate is an AI-powered cooking assistant currently in development, designed to make cooking a personalized and interactive experience. It leverages advanced NLP models to understand user needs and generate custom recipes, while also providing a seamless user interface for a smooth cooking journey.",
+        features: [
+          "**Personalized Recipe Generation:** Built a smart assistant that generates recipes by analyzing NLP inputs, applying dietary filters, and considering regional cuisines and available ingredients.",
+          "**AI-Powered Tools:** Features an AI recipe rewriter for easy modifications, a step-by-step cooking mode, and integrated chatbot support for real-time assistance.",
+          "**Optimized Performance:** Implemented key performance optimizations, including lazy loading and code splitting for faster load times. Leveraged Redis for caching to reduce database queries and improve responsiveness.",
+          "**Modern Development Practices:** Followed Agile and Behavior-Driven Development (BDD) methodologies using GitHub Projects. CI/CD pipelines and automated testing were also integrated to ensure code quality and a smooth deployment process.",
+          "**Robust Tech Stack:** The application is built with a powerful backend using FastAPI and PostgreSQL for data management, Redis for caching, and Docker for containerization. The frontend is developed using React with Tailwind CSS."
+        ],
+        tech: ["React", "Node.js", "FastAPI", "PostgreSQL", "Redis", "Tailwind", "OpenAI API", "Hugging Face", "Docker"],
+        links: {
+          github: "https://github.com/Sid-Codex/ChefMate",
+          demo: null,
+        }
+      },
+      // Using a placeholder path for ChefMate for now
+      image: "/images/projects/chefmate-screenshot1.png", 
+      images: [
+        "/images/projects/chefmate-screenshot1.png",
+        "/images/projects/chefmate-screenshot2.png",
+        "/images/projects/chefmate-screenshot3.png"
+      ],
+      featured: true,
+      category: "AI"
     }
   ],
 
   skills: {
     languages: [
-      { name: "JavaScript/TypeScript", level: 90 },
-      { name: "Python", level: 85 },
-      { name: "C++", level: 80 },
-      { name: "Java", level: 75 }
+      { name: "Python", level: 90 },
+      { name: "C++", level: 85 },
+      { name: "C", level: 80 }
     ],
-    frameworks: [
-      { name: "React", level: 90 },
+    webDevelopment: [
+      { name: "React.js", level: 90 },
       { name: "Node.js", level: 85 },
-      { name: "Express", level: 85 },
-      { name: "FastAPI", level: 80 },
-      { name: "Next.js", level: 75 }
+      { name: "Express.js", level: 85 },
+      { name: "MongoDB", level: 85 },
+      { name: "FastAPI", level: 80 }
     ],
     aiml: [
-      { name: "TensorFlow", level: 80 },
-      { name: "PyTorch", level: 75 },
-      { name: "scikit-learn", level: 85 },
-      { name: "Hugging Face", level: 70 }
+      { name: "Python", level: 95 },
+      { name: "Deep Learning", level: 85 },
+      { name: "Model Deployment", level: 85 },
+      { name: "LLMs (Groq API)", level: 80 }
     ],
-    tools: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 75 },
-      { name: "AWS", level: 70 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "Redis", level: 70 }
+    softSkills: [
+      { name: "Problem-Solving", level: 90 },
+      { name: "Analytical Thinking", level: 85 },
+      { name: "Teamwork", level: 90 },
+      { name: "Adaptability", level: 85 }
     ]
   },
 
   certifications: [
     {
-      name: "IBM Data Science Professional Certificate",
-      issuer: "IBM",
-      date: "2023",
-      credentialUrl: "https://coursera.org/verify/certificate"
-    },
-    {
-      name: "Google Data Analytics Certificate",
-      issuer: "Google",
-      date: "2023",
-      credentialUrl: "https://coursera.org/verify/certificate"
+      name: "Machine Learning Specialization",
+      issuer: "Andrew Ng, Coursera",
+      date: null,
+      credentialUrl: null
     },
     {
       name: "Deep Learning Specialization",
-      issuer: "DeepLearning.AI",
-      date: "2022",
-      credentialUrl: "https://coursera.org/verify/certificate"
+      issuer: "Andrew Ng, Coursera",
+      date: null,
+      credentialUrl: null
     },
     {
-      name: "AWS Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credentialUrl: "https://aws.amazon.com/verification"
+      name: "IBM Data Science Professional Certificate",
+      issuer: "Coursera",
+      date: null,
+      credentialUrl: null
+    },
+    {
+      name: "The Joy of Computing using Python",
+      issuer: "NPTEL, IIT Madras",
+      date: null,
+      credentialUrl: null
+    },
+    {
+      name: "Data Science for Engineers",
+      issuer: "NPTEL, IIT Madras",
+      date: null,
+      credentialUrl: null
     }
   ],
 
   education: {
-    degree: "B.Tech in Computer Science and Engineering",
-    institution: "MITS (Madanapalle Institute of Technology & Science)",
-    duration: "2021 - 2025",
-    gpa: "8.5/10",
-    achievements: [
-      "Dean's List for Academic Excellence",
-      "Winner of College Hackathon 2023",
-      "Technical Lead of Computer Science Club"
-    ]
+    degree: "Bachelor of Technology in Computer Science",
+    institution: "Muthoot Institute of Technology and Science, Kochi, Kerala",
+    duration: "Expected May 2026",
+    gpa: "CGPA: 8.59",
+    relevantCoursework: ["Data Structures and Algorithms", "Operating Systems", "Computer Networks", "Machine Learning", "DBMS"]
   },
 
   codingProfiles: [
     {
       platform: "LeetCode",
-      username: "sidharth_dev",
-      stats: "500+ problems solved",
-      url: "https://leetcode.com/sidharth_dev",
+      username: "Sid-CodeX",
+      stats: "Solved 160+ DSA problems",
+      url: "https://leetcode.com/Sid-CodeX",
       icon: "💻"
     },
     {
-      platform: "CodeChef",
-      username: "sidharth_chef",
-      stats: "4⭐ (1800+ rating)",
-      url: "https://codechef.com/users/sidharth_chef",
-      icon: "👨‍🍳"
-    },
-    {
       platform: "HackerRank",
-      username: "sidharth_hr",
-      stats: "5⭐ in Python & SQL",
-      url: "https://hackerrank.com/sidharth_hr",
+      username: "Sid_CodeX",
+      stats: "Solved 150+ DSA problems",
+      url: "https://www.hackerrank.com/Sid-CodeX",
       icon: "🏆"
     },
     {
       platform: "GitHub",
-      username: "sidharth-dev",
-      stats: "50+ repositories",
-      url: "https://github.com/sidharth-dev",
+      username: "Sid-CodeX",
+      stats: null,
+      url: "https://github.com/Sid-CodeX",
       icon: "🐙"
     }
   ]

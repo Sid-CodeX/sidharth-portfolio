@@ -1,22 +1,28 @@
-
 import { useState } from 'react';
-import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
+import ProjectDetail from './ProjectDetail';
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
-  const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const categories = ['All', 'AI', 'MERN', 'Open-Source'];
+  // Updated to match your project data from the new portfolioData structure
+  const categories = ['All', 'AI', 'MERN'];
   
   const filteredProjects = filter === 'All' 
     ? portfolioData.projects 
     : portfolioData.projects.filter(project => project.category === filter);
 
-  const featuredProjects = portfolioData.projects.filter(project => project.featured);
+  const openProjectDetail = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
-  const toggleProject = (projectId: number) => {
-    setExpandedProject(expandedProject === projectId ? null : projectId);
+  const closeProjectDetail = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
   };
 
   return (
@@ -56,13 +62,22 @@ const Projects = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="glass-card hover:bg-portfolio-card/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group"
+                className="glass-card hover:bg-portfolio-card/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group cursor-pointer"
+                onClick={() => openProjectDetail(project)}
               >
                 {/* Project Image */}
                 <div className="relative overflow-hidden rounded-t-xl">
-                  <div className="aspect-video bg-gradient-to-br from-portfolio-accent/20 to-blue-400/20 flex items-center justify-center">
-                    <div className="text-4xl">🚀</div>
-                  </div>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="aspect-video bg-gradient-to-br from-portfolio-accent/20 to-blue-400/20 flex items-center justify-center h-48">
+                      <div className="text-4xl">🚀</div>
+                    </div>
+                  )}
                   {project.featured && (
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-portfolio-accent text-white text-xs font-semibold rounded-full">
@@ -70,23 +85,8 @@ const Projects = () => {
                       </span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
-                    >
-                      <Github size={20} className="text-white" />
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all"
-                    >
-                      <ExternalLink size={20} className="text-white" />
-                    </a>
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm font-medium">View Details</span>
                   </div>
                 </div>
 
@@ -102,21 +102,12 @@ const Projects = () => {
                   </div>
 
                   <p className="text-portfolio-muted mb-4 leading-relaxed">
-                    {expandedProject === project.id ? project.longDescription : project.description}
+                    {project.description}
                   </p>
-
-                  {/* Toggle Description Button */}
-                  <button
-                    onClick={() => toggleProject(project.id)}
-                    className="flex items-center space-x-1 text-portfolio-accent hover:text-portfolio-accent/80 transition-colors mb-4 text-sm"
-                  >
-                    <span>{expandedProject === project.id ? 'Show Less' : 'Read More'}</span>
-                    {expandedProject === project.id ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                  </button>
 
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
+                    {project.longDescription.tech.slice(0, 4).map((tech: string) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-portfolio-bg border border-portfolio-accent/30 text-portfolio-accent text-sm rounded-full"
@@ -124,28 +115,40 @@ const Projects = () => {
                         {tech}
                       </span>
                     ))}
+                    {project.longDescription.tech.length > 4 && (
+                      <span className="px-3 py-1 bg-portfolio-accent/20 text-portfolio-accent text-sm rounded-full">
+                        +{project.longDescription.tech.length - 4} more
+                      </span>
+                    )}
                   </div>
 
                   {/* Links */}
                   <div className="flex space-x-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-portfolio-muted hover:text-portfolio-accent transition-colors"
-                    >
-                      <Github size={16} />
-                      <span>Code</span>
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-portfolio-muted hover:text-portfolio-accent transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      <span>Demo</span>
-                    </a>
+                    {project.longDescription.links.github && (
+                      <a
+                        href={project.longDescription.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-portfolio-muted hover:text-portfolio-accent transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github size={16} />
+                        <span>Code</span>
+                      </a>
+                    )}
+                    {/* CORRECTED: Conditionally render the demo link button */}
+                    {project.longDescription.links.demo && (
+                      <a
+                        href={project.longDescription.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-portfolio-muted hover:text-portfolio-accent transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink size={16} />
+                        <span>Demo</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -155,7 +158,7 @@ const Projects = () => {
           {/* View More Projects */}
           <div className="text-center">
             <a
-              href="https://github.com/sidharth-dev"
+              href="https://github.com/Sid-Codex"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 px-8 py-4 glass-card hover:bg-portfolio-accent hover:text-white transition-all duration-300 hover:scale-105"
@@ -166,6 +169,13 @@ const Projects = () => {
           </div>
         </div>
       </div>
+      
+      {/* Project Detail Modal */}
+      <ProjectDetail 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeProjectDetail}
+      />
     </section>
   );
 };

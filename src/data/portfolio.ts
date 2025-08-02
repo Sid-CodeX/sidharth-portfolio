@@ -47,22 +47,25 @@ export const portfolioData = {
           "**High-Performance Plagiarism Engine:** Engineered a specialized engine that significantly reduced pairwise comparison overhead by 95% using a combination of MinHash and Locality-Sensitive Hashing (LSH). This enabled efficient detection across a large corpus of documents.",
           "**Accurate Similarity Measurement:** Applied Jaccard-overlap token scoring to precisely measure and score the similarity between text snippets, providing detailed and accurate results.",
           "**Real-Time Web Content Matching:** Integrated the SERP API to perform real-time web searches, matching user-submitted content against a vast online repository.",
-          "**Detailed Reporting & Virtual Classroom:** The platform auto-generates grouped plagiarism reports with highlighted matches and a clear scoring breakdown. Additionally, it features a virtual classroom system with role-based access for teachers to create assignments and students to upload submissions, all linked to unique IDs."
+          "**Detailed Reporting & Virtual Classroom:** The platform auto-generates grouped plagiarism reports with highlighted matches and a clear scoring breakdown. Additionally, it features a virtual classroom system with role-based access where teachers create assignments and students upload submissions, all linked to unique IDs."
         ],
         tech: ["MERN", "Tailwind CSS", "MongoDB", "Azure OCR", "SERP API", "MinHash", "LSH", "Jaccard-Overlap"],
         links: {
           github: "https://github.com/Sid-Codex/VeriWrite",
-          demo: null,
+          demo: "https://veriwrite.vercel.app/",
         }
       },
-      image: "/images/projects/veriwrite/landing.png", // Main image for the project card
+      image: "/images/projects/veriwrite/landing.png",
       images: [
         "/images/projects/veriwrite/landing.png",
         "/images/projects/veriwrite/dashboard.jpeg",
         "/images/projects/veriwrite/assignment.jpeg"
       ],
-      featured: true,
-      category: "AI"
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "Azure OCR"],
+      category: "AI",
+      github: "https://github.com/Sid-Codex/VeriWrite",
+      demo: "https://veriwrite.vercel.app/",
+      featured: true
     },
     {
       id: 2,
@@ -72,7 +75,7 @@ export const portfolioData = {
         intro: "ChefMate is an AI-powered cooking assistant currently in development, designed to make cooking a personalized and interactive experience. It leverages advanced NLP models to understand user needs and generate custom recipes, while also providing a seamless user interface for a smooth cooking journey.",
         features: [
           "**Personalized Recipe Generation:** Built a smart assistant that generates recipes by analyzing NLP inputs, applying dietary filters, and considering regional cuisines and available ingredients.",
-          "**AI-Powered Tools:** Features an AI recipe rewriter for easy modifications, a step-by-step cooking mode, and integrated chatbot support for real-time assistance.",
+          "**AI-Powered Tools:** Features an AI recipe rewriter, a step-by-step cooking mode, and integrated chatbot support for real-time assistance.",
           "**Optimized Performance:** Implemented key performance optimizations, including lazy loading and code splitting for faster load times. Leveraged Redis for caching to reduce database queries and improve responsiveness.",
           "**Modern Development Practices:** Followed Agile and Behavior-Driven Development (BDD) methodologies using GitHub Projects. CI/CD pipelines and automated testing were also integrated to ensure code quality and a smooth deployment process.",
           "**Robust Tech Stack:** The application is built with a powerful backend using FastAPI and PostgreSQL for data management, Redis for caching, and Docker for containerization. The frontend is developed using React with Tailwind CSS."
@@ -83,42 +86,46 @@ export const portfolioData = {
           demo: null,
         }
       },
-      // Using a placeholder path for ChefMate for now
-      image: "/images/projects/chefmate-screenshot1.png", 
+      image: "/images/projects/chefmate-screenshot1.png",
       images: [
         "/images/projects/chefmate-screenshot1.png",
         "/images/projects/chefmate-screenshot2.png",
         "/images/projects/chefmate-screenshot3.png"
       ],
-      featured: true,
-      category: "AI"
-    }
+      tech: ["React", "Node.js", "Express.js", "FastAPI", "PostgreSQL"],
+      category: "AI",
+      github: "https://github.com/Sid-Codex/ChefMate",
+      demo: null,
+      featured: true
+    },
   ],
 
   skills: {
     languages: [
-      { name: "Python", level: 90 },
-      { name: "C++", level: 85 },
-      { name: "C", level: 80 }
+      { name: "C++", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
+      { name: "C", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
+      { name: "Python", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+      { name: "JavaScript/TypeScript", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" }
     ],
-    webDevelopment: [
-      { name: "React.js", level: 90 },
-      { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 85 },
-      { name: "MongoDB", level: 85 },
-      { name: "FastAPI", level: 80 }
+    frameworks: [
+      { name: "React.js", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { name: "Node.js", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+      { name: "Express.js", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
+      { name: "FastAPI", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" }
     ],
     aiml: [
-      { name: "Python", level: 95 },
-      { name: "Deep Learning", level: 85 },
-      { name: "Model Deployment", level: 85 },
-      { name: "LLMs (Groq API)", level: 80 }
+      { name: "Python", level: 95, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+      { name: "Deep Learning", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" },
+      { name: "Model Deployment", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+      { name: "LLMs (Groq API)", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openai/openai-original.svg" }
     ],
-    softSkills: [
-      { name: "Problem-Solving", level: 90 },
-      { name: "Analytical Thinking", level: 85 },
-      { name: "Teamwork", level: 90 },
-      { name: "Adaptability", level: 85 }
+    tools: [
+      { name: "Git", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+      { name: "Docker", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+      { name: "MongoDB", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+      { name: "PostgreSQL", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+      { name: "Redis", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
+      { name: "Azure OCR", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" }
     ]
   },
 
@@ -127,31 +134,36 @@ export const portfolioData = {
       name: "Machine Learning Specialization",
       issuer: "Andrew Ng, Coursera",
       date: null,
-      credentialUrl: null
+      credentialUrl: null,
+      image: "/images/certifications/ML_andrewng.jpg"
     },
     {
       name: "Deep Learning Specialization",
       issuer: "Andrew Ng, Coursera",
       date: null,
-      credentialUrl: null
+      credentialUrl: null,
+      image: "/images/certifications/DL_andrewng.png"
     },
     {
       name: "IBM Data Science Professional Certificate",
       issuer: "Coursera",
       date: null,
-      credentialUrl: null
+      credentialUrl: null,
+      image: "/images/certifications/IBM_Data_Science_Professional_Certificate.jpg"
     },
     {
       name: "The Joy of Computing using Python",
       issuer: "NPTEL, IIT Madras",
       date: null,
-      credentialUrl: null
+      credentialUrl: null,
+      image: "/images/certifications/Joy_of_Computing_using_Python.jpg"
     },
     {
       name: "Data Science for Engineers",
       issuer: "NPTEL, IIT Madras",
       date: null,
-      credentialUrl: null
+      credentialUrl: null,
+      image: "/images/certifications/Data_Science_for_Engineers.jpg"
     }
   ],
 
@@ -168,22 +180,32 @@ export const portfolioData = {
       platform: "LeetCode",
       username: "Sid-CodeX",
       stats: "Solved 160+ DSA problems",
-      url: "https://leetcode.com/Sid-CodeX",
-      icon: "💻"
+      url: "https://leetcode.com/u/Sid_CodeX",
+      icon: "💻",
+      api: {
+        endpoint: "https://leetcode-stats-api.herokuapp.com/Sid_CodeX"
+      }
     },
     {
       platform: "HackerRank",
       username: "Sid_CodeX",
       stats: "Solved 150+ DSA problems",
-      url: "https://www.hackerrank.com/Sid-CodeX",
-      icon: "🏆"
+      url: "https://www.hackerrank.com/Sid_CodeX",
+      icon: "🏆",
+      api: {
+        endpoint: "https://hacker-rank-api.herokuapp.com/Sid_CodeX"
+      }
     },
     {
       platform: "GitHub",
       username: "Sid-CodeX",
       stats: null,
-      url: "https://github.com/Sid-CodeX",
-      icon: "🐙"
+      url: "https://github.com/Sid-Codex",
+      icon: "🐙",
+      api: {
+        endpoint: "https://api.github.com/users/Sid-Codex",
+        heatmap: `https://gh-contributions.vercel.app/api?username=Sid-Codex`
+      }
     }
   ]
 };

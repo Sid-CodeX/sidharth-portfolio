@@ -25,19 +25,18 @@ const CodingProfileCard = ({ profile }) => {
       };
       fetchData();
     } else {
-      // Fallback mock stats if no API
       setStats({
         problemsSolved: profile.stats,
-        totalSolved: 169,
-        acceptanceRate: 74,
         easySolved: 79,
         mediumSolved: 76,
-        hardSolved: 14
+        hardSolved: 14,
+        totalQuestions: 3636,
+        ranking: 777201
       });
       setIsLoading(false);
     }
   }, [profile]);
-
+  
   return (
     <div className="glass-card p-6 text-left w-full hover:bg-portfolio-card/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
       <div className="flex items-center space-x-4 mb-4">

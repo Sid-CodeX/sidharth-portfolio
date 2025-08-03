@@ -1,4 +1,3 @@
-
 import { portfolioData } from '../data/portfolio';
 
 const About = () => {
@@ -14,30 +13,9 @@ const About = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-portfolio-accent to-blue-400 mx-auto"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Profile Image */}
-            <div className="order-2 lg:order-1">
-              <div className="relative max-w-md mx-auto lg:max-w-none">
-                {/* Decorative background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-portfolio-accent to-blue-400 rounded-2xl transform rotate-3"></div>
-                <div className="relative bg-portfolio-card rounded-2xl p-8 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-                  <div className="aspect-square bg-gradient-to-br from-portfolio-accent/20 to-blue-400/20 rounded-xl flex items-center justify-center">
-                    <div className="text-6xl">👨‍💻</div>
-                  </div>
-                </div>
-                
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-portfolio-accent rounded-full flex items-center justify-center animate-float">
-                  <span className="text-xl">⚡</span>
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 glass-card rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '-2s' }}>
-                  <span className="text-2xl">🚀</span>
-                </div>
-              </div>
-            </div>
-
+          <div className="grid lg:grid-cols-1 gap-12 items-center">
             {/* About Content */}
-            <div className="order-1 lg:order-2 space-y-6">
+            <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-semibold mb-4 text-portfolio-text">
                   {portfolioData.personal.title}
@@ -47,24 +25,16 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-4 pt-6">
-                <div className="glass-card p-4 text-center">
-                  <div className="text-2xl font-bold text-portfolio-accent mb-1">50+</div>
-                  <div className="text-sm text-portfolio-muted">Projects Completed</div>
-                </div>
-                <div className="glass-card p-4 text-center">
-                  <div className="text-2xl font-bold text-portfolio-accent mb-1">2+</div>
-                  <div className="text-sm text-portfolio-muted">Years Experience</div>
-                </div>
-                <div className="glass-card p-4 text-center">
-                  <div className="text-2xl font-bold text-portfolio-accent mb-1">10+</div>
-                  <div className="text-sm text-portfolio-muted">Technologies</div>
-                </div>
-                <div className="glass-card p-4 text-center">
-                  <div className="text-2xl font-bold text-portfolio-accent mb-1">500+</div>
-                  <div className="text-sm text-portfolio-muted">Problems Solved</div>
-                </div>
+              {/* Problem-Solving Philosophy Section */}
+              <div className="glass-card p-6">
+                <h4 className="font-semibold text-portfolio-text mb-4 text-xl">{portfolioData.personal.philosophy.title}</h4>
+                <ul className="list-disc list-inside text-portfolio-muted leading-relaxed space-y-2">
+                  {portfolioData.personal.philosophy.points.map((point, index) => (
+                    <li key={index}>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Education Highlight */}

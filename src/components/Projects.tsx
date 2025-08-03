@@ -4,18 +4,10 @@ import { portfolioData } from '../data/portfolio';
 import ProjectDetail from './ProjectDetail';
 
 const Projects = () => {
-  const [filter, setFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Updated to match your project data from the new portfolioData structure
-  const categories = ['All', 'AI', 'MERN'];
-  
-  const filteredProjects = filter === 'All' 
-    ? portfolioData.projects 
-    : portfolioData.projects.filter(project => project.category === filter);
-
-  const openProjectDetail = (project: any) => {
+  const openProjectDetail = (project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
@@ -40,26 +32,9 @@ const Projects = () => {
             </p>
           </div>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  filter === category
-                    ? 'bg-portfolio-accent text-white shadow-lg shadow-portfolio-accent/25'
-                    : 'glass-card hover:bg-portfolio-accent/10 text-portfolio-muted hover:text-portfolio-text'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Featured Projects Grid */}
+          {/* Featured Projects Grid - Now showing all projects in one list */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {filteredProjects.map((project) => (
+            {portfolioData.projects.map((project) => (
               <div
                 key={project.id}
                 className="glass-card hover:bg-portfolio-card/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group cursor-pointer"
@@ -107,7 +82,7 @@ const Projects = () => {
 
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.longDescription.tech.slice(0, 4).map((tech: string) => (
+                    {project.longDescription.tech.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-portfolio-bg border border-portfolio-accent/30 text-portfolio-accent text-sm rounded-full"
@@ -136,7 +111,6 @@ const Projects = () => {
                         <span>Code</span>
                       </a>
                     )}
-                    {/* CORRECTED: Conditionally render the demo link button */}
                     {project.longDescription.links.demo && (
                       <a
                         href={project.longDescription.links.demo}

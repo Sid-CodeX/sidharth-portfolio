@@ -89,7 +89,7 @@ const Hero = () => {
           {/* Social Links */}
           <div className="animate-fade-in flex items-center justify-center space-x-6" style={{ animationDelay: '1.2s' }}>
             <a
-              href="https://github.com/sidharth-dev"
+              href="https://github.com/Sid-CodeX"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 glass-card hover:bg-portfolio-accent transition-colors duration-300 group"
@@ -97,7 +97,7 @@ const Hero = () => {
               <Github size={24} className="group-hover:text-white" />
             </a>
             <a
-              href="https://linkedin.com/in/sidharth"
+              href="https://www.linkedin.com/in/sidharth-p-7b0097257/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 glass-card hover:bg-portfolio-accent transition-colors duration-300 group"
@@ -105,7 +105,7 @@ const Hero = () => {
               <Linkedin size={24} className="group-hover:text-white" />
             </a>
             <a
-              href="mailto:sidharth@example.com"
+              href="mailto:sidharth2272004@gmail.com"
               className="p-3 glass-card hover:bg-portfolio-accent transition-colors duration-300 group"
             >
               <Mail size={24} className="group-hover:text-white" />

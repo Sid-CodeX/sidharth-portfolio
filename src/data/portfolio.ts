@@ -107,6 +107,37 @@ export const portfolioData = {
       demo: null,
       featured: true
     },
+    {
+      id: 3,
+      title: "Auto-Answer Grader",
+      description: "An AI-powered web application that automates the grading of subjective, descriptive answers from digital documents using NLP and semantic analysis.",
+      longDescription: {
+        intro: "The Auto-Answer Grader is an innovative full-stack web application that leverages AI and NLP to automate the evaluation of open-ended answers. It significantly reduces manual grading effort, provides objective and consistent evaluations, and delivers timely, constructive feedback to students. The system's workflow is designed for efficiency, from document ingestion to results analysis.",
+        features: [
+          "Intelligent Document Parsing: Implemented a robust backend using `python-fitz` to accurately extract questions and answers from uploaded PDF documents, creating a seamless grading workflow.",
+          "Semantic Similarity Scoring: Utilized advanced NLP techniques with `sentence-transformers` to perform semantic analysis, providing more accurate assessments based on the meaning of answers rather than simple keyword matching.",
+          "AI-Driven Feedback Generation: Integrated with the Groq API to use a Large Language Model (LLM) for generating sophisticated, personalized, and context-aware feedback for each student's response.",
+          "Comprehensive Interactive Dashboard: Developed a responsive frontend with React and Shadcn/ui that presents a clear overview of performance, including overall scores, a detailed per-question breakdown, and personalized feedback.",
+          "Full-Stack High-Performance Architecture: Engineered a high-performance backend with FastAPI and a dynamic frontend with React and TypeScript, ensuring a fast, reliable, and scalable application."
+        ],
+        tech: ["React", "TypeScript", "Vite", "FastAPI", "NLP", "LLMs", "Groq API", "PyMuPDF", "sentence-transformers"],
+        links: {
+          github: "https://github.com/Sid-CodeX/Auto-Answer-Grader.git",
+          demo: null,
+        }
+      },
+      image: "/images/projects/auto_grader/auto_grader1.png", // Replace with your project image path if available
+      images: [
+        "/images/projects/auto_grader/auto_grader2.png",
+        "/images/projects/auto_grader/auto_grader3.png",
+        "/images/projects/auto_grader/auto_grader4.png"
+      ],
+      tech: ["React", "TypeScript", "FastAPI", "NLP", "LLMs"],
+      category: "AI",
+      github: "https://github.com/Sid-CodeX/Auto-Answer-Grader.git",
+      demo: null,
+      featured: false
+    },
   ],
 
   skills: {

@@ -3,44 +3,84 @@ import { ExternalLink } from 'lucide-react';
 
 const CodingProfileCard = ({ profile }) => {
   const [stats, setStats] = useState(null);
+  const [githubStats, setGithubStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (profile.api?.endpoint) {
-      const fetchData = async () => {
-        try {
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        if (profile.platform === 'GitHub') {
+          // Fetch user data (public repos)
+          const userResponse = await fetch(profile.api.endpoint);
+          const userData = await userResponse.json();
+
+          // Fetch contribution data from the third-party API
+          const contributionResponse = await fetch(profile.api.contributionEndpoint);
+          const contributionData = await contributionResponse.json();
+          
+          if (!userResponse.ok || !contributionResponse.ok) {
+            throw new Error(`Failed to fetch stats from GitHub.`);
+          }
+          
+          // Calculate total contributions by summing the yearly contributions from the API response.
+          const totalContributions = Object.values(contributionData.total).reduce((acc: number, val: unknown) => {
+            return acc + Number(val);
+          }, 0);
+          
+          setGithubStats({
+            public_repos: userData.public_repos,
+            total_contributions: totalContributions,
+            // The streak data is not provided directly by this API, so we'll leave it as N/A.
+            max_streak: 'N/A',
+            current_streak: 'N/A',
+          });
+        } else if (profile.api?.endpoint) {
           const response = await fetch(profile.api.endpoint);
           if (!response.ok) {
             throw new Error(`Failed to fetch stats from ${profile.platform}`);
           }
           const data = await response.json();
           setStats(data);
-        } catch (err) {
-          setError(err.message);
-          setStats(null);
-        } finally {
-          setIsLoading(false);
+        } else {
+          // Placeholder for HackerRank as it has no direct API
+          setStats({ problemsSolved: profile.stats });
         }
-      };
-      fetchData();
-    } else {
-      setStats({
-        problemsSolved: profile.stats,
-        easySolved: 79,
-        mediumSolved: 76,
-        hardSolved: 14,
-        totalQuestions: 3636,
-        ranking: 777201
-      });
-      setIsLoading(false);
-    }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
   }, [profile]);
-  
+
+  const isUrl = (str: string) => {
+    try {
+      new URL(str);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+
   return (
     <div className="glass-card p-6 text-left w-full hover:bg-portfolio-card/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
       <div className="flex items-center space-x-4 mb-4">
-        <div className="text-3xl">{profile.icon}</div>
+        {isUrl(profile.icon) ? (
+          <div className="w-10 h-10 flex items-center justify-center">
+            <img
+              src={profile.icon}
+              alt={`${profile.platform} logo`}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        ) : (
+          <div className="text-3xl">{profile.icon}</div>
+        )}
         <div>
           <h4 className="font-semibold text-xl text-portfolio-text">{profile.platform}</h4>
           <p className="text-portfolio-muted text-sm">@{profile.username}</p>
@@ -82,32 +122,25 @@ const CodingProfileCard = ({ profile }) => {
             </div>
           )}
 
-          {profile.platform === 'GitHub' && stats && (
-            <div className="mt-2">
-              <p className="text-portfolio-text font-medium mb-2">
-                Public Repos: {stats.public_repos}
-              </p>
-              <a href={profile.url} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={profile.api.heatmap}
-                  alt="GitHub Contributions Heatmap"
-                  className="w-full h-auto rounded-md mt-2 border border-portfolio-accent/30 hover:opacity-80 transition-opacity"
-                />
-              </a>
+          {profile.platform === 'GitHub' && githubStats && (
+            <div className="mt-2 space-y-3">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gray-800 p-2 rounded-lg text-center">
+                  <p className="text-sm font-medium text-white">Public Repos</p>
+                  <p className="text-lg font-bold text-portfolio-accent">{githubStats.public_repos}</p>
+                </div>
+                <div className="bg-gray-800 p-2 rounded-lg text-center">
+                  <p className="text-sm font-medium text-white">Total Contributions</p>
+                  <p className="text-lg font-bold text-portfolio-accent">{githubStats.total_contributions}</p>
+                </div>
+              </div>
             </div>
           )}
 
-          {profile.platform === 'HackerRank' && (
+          {profile.platform === 'HackerRank' && stats && (
             <div className="mt-2 space-y-1">
               <p className="text-portfolio-muted">
-                <span className="font-semibold text-portfolio-text">
-                  Rank:
-                </span> {profile.stats.split(' ')[0]}
-              </p>
-              <p className="text-portfolio-muted">
-                <span className="font-semibold text-portfolio-text">
-                  Solved:
-                </span> {profile.stats.split(' ')[2]}
+                {stats.problemsSolved}
               </p>
             </div>
           )}

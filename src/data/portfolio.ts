@@ -122,7 +122,7 @@ export const portfolioData = {
         ],
         tech: ["React", "TypeScript", "Vite", "FastAPI", "NLP", "LLMs", "Groq API", "PyMuPDF", "sentence-transformers"],
         links: {
-          github: "https://github.com/Sid-CodeX/Auto-Answer-Grader.git",
+          github: "https://github.com/Sid-CodeX/Auto-Answer-Grader",
           demo: null,
         }
       },
@@ -134,7 +134,7 @@ export const portfolioData = {
       ],
       tech: ["React", "TypeScript", "FastAPI", "NLP", "LLMs"],
       category: "AI",
-      github: "https://github.com/Sid-CodeX/Auto-Answer-Grader.git",
+      github: "https://github.com/Sid-CodeX/Auto-Answer-Grader",
       demo: null,
       featured: false
     },

@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+### My Portfolio
 
-## Project info
+Hello\! 👋 Welcome to my personal portfolio repository. This site is a showcase of my skills, projects, and passion for creating impactful web experiences.
 
-**URL**: https://lovable.dev/projects/90b6a8b0-c3ac-4ffc-874b-7c79d7eae7fa
+-----
 
-## How can I edit this code?
+### 🚀 Live Demo
 
-There are several ways of editing your application.
+**[Explore my portfolio live\!](https://sid-codex.vercel.app/)**
 
-**Use Lovable**
+-----
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/90b6a8b0-c3ac-4ffc-874b-7c79d7eae7fa) and start prompting.
+### ✨ Featured Projects
 
-Changes made via Lovable will be committed automatically to this repo.
+Check out some of my favorite projects on the site. I'm always adding new work, so be sure to take a look around\!
 
-**Use your preferred IDE**
+  * **VeriWrite**: A full-stack plagiarism detection platform that leverages advanced hashing algorithms and multi-format text extraction to provide fast, highly accurate content similarity analysis.
+  * **Auto-Answer Grader**: An intelligent web application that automates the grading of subjective answers using AI. It employs Natural Language Processing (NLP) to perform semantic analysis and delivers objective scores and personalized feedback.
+  * **ChefMate**: An AI-powered cooking assistant that generates personalized recipes in real-time. It uses natural language inputs to consider dietary restrictions, regional cuisines, and available ingredients, providing a truly customized culinary experience.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+-----
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🛠️ Tech Stack
 
-Follow these steps:
+This portfolio is built with a modern and robust tech stack, demonstrating my proficiency in these key technologies:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+  * **React**: A powerful library for building dynamic and responsive user interfaces.
+  * **TypeScript**: Ensures code quality and maintainability with static typing.
+  * **Tailwind CSS**: Speeds up UI development with a utility-first CSS framework.
+  * **Vite**: Provides a blazing-fast development environment and optimized builds.
+  * **shadcn-ui**: Utilizes beautifully designed, accessible UI components.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+-----
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 💻 Get Started Locally
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Want to see how it works under the hood? You can clone and run this project in a few simple steps.
 
-**Edit a file directly in GitHub**
+1.  **Clone the repository:**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+    ```bash
+    git clone https://github.com/Sid-CodeX/sidharth-portfolio.git
+    cd sidharth-portfolio
+    ```
 
-**Use GitHub Codespaces**
+2.  **Install dependencies:**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+    ```bash
+    npm install
+    ```
 
-## What technologies are used for this project?
+3.  **Start the development server:**
 
-This project is built with:
+    ```bash
+    npm run dev
+    ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/90b6a8b0-c3ac-4ffc-874b-7c79d7eae7fa) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+    Your portfolio will be running at `http://localhost:5173`.
